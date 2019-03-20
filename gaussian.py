@@ -21,12 +21,13 @@ def main():
             coeff_counter = 0
             coeffs = []
             for coeff in array_of_coeffs:
-                coeffs.append(float(array_of_coeffs[coeff_counter]))
+                coeffs.append(float(coeff))
                 coeff_counter += 1
-                matrix.append(coeffs)
-            print(str(coeffs)  + "\n")
+            matrix.append(coeffs)
+
         counter += 1
         #GaussianElim(matrix, num_rows)
+     print(str(matrix)  + "\n")
 
 def GaussianElim(matrix, num_rows):
 
@@ -34,6 +35,7 @@ def GaussianElim(matrix, num_rows):
     while row_counter <= num_rows:
         column_counter  = 0
         while column_counter <= row_counter:
+            pivot = matrix[row_counter][column_counter]
             matrix[row_counter]
             column_counter += 1
         row_counter += 1
