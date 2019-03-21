@@ -4,6 +4,12 @@ Arlan Vincent Uy
 2015-09385
 CS 131 THU
 '''
+
+'''
+Input: "doolittle_input1.txt"
+Method: Implements the file input system and the parsing of the matrix coefficients
+We also built a list within a list matrix here and created two copies of it
+'''
 def main():
      file_object = open("doolittle_input1.txt", "r")
 
