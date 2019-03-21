@@ -27,6 +27,7 @@ def main():
                 num_rows *= 10
                 line_counter += 1
             num_rows /= 10
+            num_rows = int(num_rows)
         else:
             array_of_coeffs = line.split(',' , num_rows + 1)
             array_of_coeffs[-1] = array_of_coeffs[-1][:-1]
