@@ -12,12 +12,12 @@ CS 131 THU
 '''
 
 '''
-Input: "doolittle_input1.txt"
+Input: "hilbert1-3.txt"
 Method: Implements the file input system and the parsing of the matrix coefficients
 We also built a list within a list matrix here and created two copies of it
 '''
 def main():
-     file_object = open("doolittle_input0.txt", "r")
+     file_object = open("hilbert3.txt", "r")
 
      counter = 0
      num_rows = 0
@@ -54,7 +54,7 @@ def main():
      y_vector = findMyExesLower(lower_matrix, num_rows, b_vector)
      x_vector = findMyExesUpper(matrix, num_rows, y_vector)
     # print(str(y_vector))
-     file = open("doolittle_output0.txt", encoding='utf-8', mode='w')
+     file = open("doolittlehilbert_output3.txt", encoding='utf-8', mode='w')
      file.write("Solution is: ")
      file.write(str(x_vector) + "\n")
 
