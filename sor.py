@@ -1,11 +1,12 @@
-#Juico, Jules Gerard E.
-#2014-40314
-#CS 131 THU
+'''
+Uy, Arlan Vincent
+2015-09385
+CS 131 THU
 
-#Arlan Vincent Uy
-#2015-09385
-#CS 131 THU
-
+Juico, Jules Gerard E.
+2014-40314
+CS 131 THU
+'''
 
 #Successive Relaxation
 
@@ -14,7 +15,7 @@
 		The input and output is a text file. First row is the omega while succeeding rows are the coefficient matrix (augmented) for each equation.
 '''
 Output = 0
-Textfile = input("Enter input file name (sor_inputh.txt for Hilbert, sor_input1.txt for sample input): ")
+Textfile = input("Enter input file name (sor_inputh.txt, sor_inputh2.txt, or sor_inputh3.txt for Hilbert, sor_input1.txt for sample input): ")
 File = open(Textfile,"r")
 Choice = input("Do you want to write the output into a file (Yes or No)? ")
 if(Choice == "Yes"):
@@ -85,8 +86,8 @@ while (Change == 1):
 	print("Current: {}".format(Print))
 	if(Choice == "Yes"):
 		Output.write("Current: {}\n".format(Print))
-	for i in range(0, Size):
-		Print[i] = round(Next[i], 4)
+	#for i in range(0, Size):
+	#	Print[i] = round(Next[i], 4)
 	print("Next: {}\n".format(Print))
 	if(Choice == "Yes"):
 		Output.write("Next: {}\n\n".format(Print))
@@ -96,11 +97,11 @@ while (Change == 1):
 '''Output
 		The last value is printed out to the terminal as a list.
 '''
-for i in range(0, Size):
-	Print[i] = round(Next[i], 3)
-print("x: {}\n".format(Print))
 if(Choice == "Yes"):
-	Output.write("x: {}\n".format(Print))
+	Output.write("x: {}\n".format(Next))
+#for i in range(0, Size):
+#	Print[i] = round(Next[i], 3)
+print("x: {}\n".format(Print))
 
 File.close()
 if(Choice == "Yes"):
