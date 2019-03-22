@@ -12,12 +12,12 @@ CS 131 THU
 '''
 
 '''
-Input: "doolittle_input1.txt"
+Input: "hilbert1-3.txt"
 Method: Implements the file input system and the parsing of the matrix coefficients
 We also built a list within a list matrix here and created two copies of it
 '''
 def main():
-     file_object = open("doolittle_input0.txt", "r")
+     file_object = open("hilbert3.txt", "r")
 
      counter = 0
      num_rows = 0
@@ -50,11 +50,11 @@ def main():
 
      b_vector = []
      lower_matrix = creatingLower(matrix, num_rows, orig_matrix, b_vector)
-     #print("b_vector is " + str(b_vector))
+    # print("b_vector is " + str(b_vector))
      y_vector = findMyExesLower(lower_matrix, num_rows, b_vector)
      x_vector = findMyExesUpper(matrix, num_rows, y_vector)
     # print(str(y_vector))
-     file = open("doolittle_output0.txt", encoding='utf-8', mode='w')
+     file = open("doolittlehilbert_output3.txt", encoding='utf-8', mode='w')
      file.write("Solution is: ")
      file.write(str(x_vector) + "\n")
 
@@ -164,8 +164,8 @@ def creatingLower(matrix, num_rows, orig_matrix, b_vector):
             summation = 0
             while k < column_counter:
                 summation += matrix[k][column_counter] * lower_matrix[row_counter][k]
-                #print("k is " + str(k) + " and cc is " + str(column_counter) + " and rc is " + str(row_counter) + "\n")
-                #print("summation is " + str(summation) + " with 1st elem" + str(matrix[k][column_counter]) + " with 2nd elem " + str(lower_matrix[row_counter][k]) +"\n")
+            #    print("k is " + str(k) + " and cc is " + str(column_counter) + " and rc is " + str(row_counter) + "\n")
+            #    print("summation is " + str(summation) + " with 1st elem" + str(matrix[k][column_counter]) + " with 2nd elem " + str(lower_matrix[row_counter][k]) +"\n")
                 k+= 1
             #print("minuend is " + str(orig_matrix[row_counter][column_counter]) + "\n")
             lower_matrix[row_counter][column_counter] = (orig_matrix[row_counter][column_counter] - summation)/matrix[column_counter][column_counter]

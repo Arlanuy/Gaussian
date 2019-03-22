@@ -13,13 +13,13 @@ CS 131 THU
 
 #Can only solve n x n matrix and matrix who doesn't need pivoting
 '''
-Input: "gauss_input1.txt"
+Input: "hilbert1-3.txt"
 Method: Implements the file input system and the parsing of the matrix coefficients
 We also built a list within a list matrix here
 '''
 
 def main():
-     file_object = open("gauss_input1.txt", "r")
+     file_object = open("hilbert3.txt", "r")
 
      counter = 0
      num_rows = 0
@@ -54,6 +54,7 @@ num_rows: the size of the matrix, the N from the N X N matrix
 Method: Finds the solution set X, given the final output of the GaussianElim method
 '''
 def findMyExes(matrix, num_rows):
+    file = open("hilbert3output.txt", encoding='utf-8', mode='w')
     x_vector = []
     row_counter = num_rows - 1
 
@@ -78,7 +79,7 @@ def findMyExes(matrix, num_rows):
             #print("numerator is " + str(matrix[row_counter][column_counter]) + "\n" + " while summation is " + str(summation) + " while quotient is " +  str(matrix[row_counter][column_counter]/summation))
             x_vector.insert(0, summation/matrix[row_counter][column_counter])
         row_counter -= 1
-    file = open("gaussian_output.txt", encoding='utf-8', mode='w')
+
     file.write("The solution is " + str(x_vector))
 '''
 Input: matrix: the matrix from the GaussianElim method
