@@ -1,14 +1,25 @@
 #Juico, Jules Gerard E.
 #2014-40314
-#Section
+#CS 131 THU
+
+#Arlan Vincent Uy
+#2015-09385
+#CS 131 THU
+
 
 #Successive Relaxation
 
 
 '''File handling
-		The input is a text file. First row is the omega while succeeding rows are the coefficient matrix (augmented) for each equation
+		The input and output is a text file. First row is the omega while succeeding rows are the coefficient matrix (augmented) for each equation.
 '''
-File = open("sor_inputh.txt","r")
+Output = 0
+Textfile = input("Enter input file name (sor_inputh.txt for Hilbert, sor_input1.txt for sample input): ")
+File = open(Textfile,"r")
+Choice = input("Do you want to write the output into a file (Yes or No)? ")
+if(Choice == "Yes"):
+	Textfile = input("Enter output file name (suggested: sor_outputh.txt for Hilbert, sor_output1.txt for sample input): ")
+	Output = open(Textfile,"w")
 
 '''Initialization of values and matrices
 		The input is just read from the input text file and stored to a list. The contents of the list are copied to respective lists (the coefficients and the products).
@@ -29,7 +40,6 @@ for y in range(1, Size):
 	List = [float(Number) for Number in File.readline().replace("\n","").split(" ")]
 	Product[y] = List.pop(-1)
 	Coefficients[y] = List
-#Current = [0, 0, 0]
 
 
 '''Function defintion
@@ -46,12 +56,14 @@ def Function(y, Size):
 	return Answer
 
 '''Main algorithm
-		K is the current step where the algorithm is, used just for printing. The current xs takes the "next xs" and each of the next values are computed, using the function previously defined. If the change of the next step and the previous step is less than a certain threshhold, then the algorithm stops. There is also a hard limit implemented to prevent infinite loops for solutions that don't converge.
+		K is the current step where the algorithm is, used just for printing. The current xs takes the "next xs" and each of the next values are computed, using the function previously defined. If the change of the next step and the previous step is less than a certain threshhold, then the algorithm stops.
 '''
 K = 0
 while (Change == 1):
 
 	print("K = {}".format(K))
+	if(Choice == "Yes"):
+		Output.write("K = {}\n".format(K))
 
 	for i in range(0,Size):
 		Current[i] = Next[i]
@@ -71,18 +83,25 @@ while (Change == 1):
 	for i in range(0, Size):
 		Print[i] = round(Current[i], 4)
 	print("Current: {}".format(Print))
+	if(Choice == "Yes"):
+		Output.write("Current: {}\n".format(Print))
 	for i in range(0, Size):
 		Print[i] = round(Next[i], 4)
 	print("Next: {}\n".format(Print))
+	if(Choice == "Yes"):
+		Output.write("Next: {}\n\n".format(Print))
 
 	K += 1
-
-	#if (K == 10):
-	#	Change = 0
 
 '''Output
 		The last value is printed out to the terminal as a list.
 '''
 for i in range(0, Size):
 	Print[i] = round(Next[i], 3)
-print("x: {}".format(Print))
+print("x: {}\n".format(Print))
+if(Choice == "Yes"):
+	Output.write("x: {}\n".format(Print))
+
+File.close()
+if(Choice == "Yes"):
+	Output.close()
