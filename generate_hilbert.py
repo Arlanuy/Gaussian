@@ -1,3 +1,15 @@
+'''
+Arlan Vincent Uy
+2015-09385
+CS 131 THU
+'''
+
+'''
+Juico, Jules Gerald E.
+2014-40314
+CS 131 THU
+'''
+
 def main():
     N = 20
 

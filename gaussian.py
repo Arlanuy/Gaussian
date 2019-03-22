@@ -5,6 +5,12 @@ Arlan Vincent Uy
 CS 131 THU
 '''
 
+'''
+Juico, Jules Gerald E.
+2014-40314
+CS 131 THU
+'''
+
 #Can only solve n x n matrix and matrix who doesn't need pivoting
 '''
 Input: "gauss_input1.txt"
