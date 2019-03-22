@@ -5,6 +5,12 @@ Arlan Vincent Uy
 CS 131 THU
 '''
 
+'''
+Juico, Jules Gerald E.
+2014-40314
+CS 131 THU
+'''
+
 #Can only solve n x n matrix and matrix who doesn't need pivoting
 '''
 Input: "hilbert1-3.txt"
@@ -48,6 +54,7 @@ num_rows: the size of the matrix, the N from the N X N matrix
 Method: Finds the solution set X, given the final output of the GaussianElim method
 '''
 def findMyExes(matrix, num_rows):
+    file = open("hilbert3output.txt", encoding='utf-8', mode='w')
     x_vector = []
     row_counter = num_rows - 1
 
@@ -72,8 +79,8 @@ def findMyExes(matrix, num_rows):
             #print("numerator is " + str(matrix[row_counter][column_counter]) + "\n" + " while summation is " + str(summation) + " while quotient is " +  str(matrix[row_counter][column_counter]/summation))
             x_vector.insert(0, summation/matrix[row_counter][column_counter])
         row_counter -= 1
-    with open("hilbert3output.txt", encoding='utf-8', mode='a') as file:
-        file.write("The solution is " + str(x_vector))
+
+    file.write("The solution is " + str(x_vector))
 '''
 Input: matrix: the matrix from the GaussianElim method
 row: the current row to be scaled

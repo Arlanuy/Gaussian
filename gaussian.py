@@ -72,7 +72,8 @@ def findMyExes(matrix, num_rows):
             #print("numerator is " + str(matrix[row_counter][column_counter]) + "\n" + " while summation is " + str(summation) + " while quotient is " +  str(matrix[row_counter][column_counter]/summation))
             x_vector.insert(0, summation/matrix[row_counter][column_counter])
         row_counter -= 1
-    print("The solution is " + str(x_vector))
+    file = open("gaussian_output.txt", encoding='utf-8', mode='w')
+    file.write("The solution is " + str(x_vector))
 '''
 Input: matrix: the matrix from the GaussianElim method
 row: the current row to be scaled

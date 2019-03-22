@@ -2,11 +2,8 @@ def main():
     N = 20
 
     matrix = [[0 for b in range(N)] for a in range(N)]
-    for i in range(N):
-        for j in range(N):
-            if i == 0 and j == 0:
-                matrix[i][j] = 1
-            elif i + j - 1 != 0:
+    for i in range(1, N + 1):
+        for j in range(1, N + 1):
                 matrix[i - 1][j - 1] = 1/(i + j - 1)
     #print(matrix)
 
@@ -24,22 +21,21 @@ def main():
         b_vector.append(summation)
         row_counter += 1
     #print(b_vector)
-
+    file = open("hilbert3.txt", encoding='utf-8', mode='w')
     #creating input file_object
-    with open("hilbert3.txt", encoding='utf-8', mode='a') as file:
-        file.write(str(N) + "\n")
+
+    file.write(str(N) + "\n")
     row_counter = 0
 
     while row_counter < N:
         column_counter = 0
         while column_counter < N:
-            with open("hilbert3.txt", encoding='utf-8', mode='a') as file:
-                file.write(str(matrix[row_counter][column_counter]))
-                file.write(", ")
+
+            file.write(str(matrix[row_counter][column_counter]))
+            file.write(", ")
             column_counter += 1
-        with open("hilbert3.txt", encoding='utf-8', mode='a') as file:
-            file.write(str(b_vector[row_counter]))
-            file.write('\n')
+        file.write(str(b_vector[row_counter]))
+        file.write('\n')
         row_counter += 1
 
 

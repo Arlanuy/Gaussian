@@ -41,7 +41,41 @@ def main():
 
         counter += 1
 
-     creatingLower(matrix, num_rows, orig_matrix)
+     lower_matrix = creatingLower(matrix, num_rows, orig_matrix)
+     #findMyExes()
+
+'''
+Input: matrix: the 2-dimensional created from main method
+num_rows: the size of the matrix, the N from the N X N matrix
+Method: Finds the solution set X, given the final output of the GaussianElim method
+'''
+def findMyExes(matrix, num_rows):
+    x_vector = []
+    row_counter = num_rows - 1
+
+    while row_counter >= 0:
+        column_counter = num_rows - 1
+        summation = matrix[row_counter][num_rows]
+        if row_counter == num_rows - 1:
+            x_last = matrix[row_counter][num_rows]/matrix[row_counter][num_rows - 1]
+            x_vector.insert(0, x_last)
+
+        #print("x vector is " + str(x_vector))
+        while column_counter > row_counter:
+
+             if row_counter != num_rows - 1:
+                 index_x_vector = -1 + (column_counter - num_rows + 1)
+                 #print("x vector is " + str(x_vector) + "\n")
+                # print("index_x_vector and row_counter and column_counter are " + str(index_x_vector) + str(row_counter) + str(column_counter) + "\n")
+                 summation -= x_vector[index_x_vector] * matrix[row_counter][column_counter]
+                 #print("summation is " + str(summation) + "\n")
+             column_counter -= 1
+        if row_counter != num_rows - 1:
+            #print("numerator is " + str(matrix[row_counter][column_counter]) + "\n" + " while summation is " + str(summation) + " while quotient is " +  str(matrix[row_counter][column_counter]/summation))
+            x_vector.insert(0, summation/matrix[row_counter][column_counter])
+        row_counter -= 1
+    file = open("gaussian_output.txt", encoding='utf-8', mode='w')
+    file.write("The solution is " + str(x_vector))
 
 #
 '''
@@ -86,6 +120,7 @@ def creatingLower(matrix, num_rows, orig_matrix):
             column_counter += 1
         row_counter += 1
     print("lower matrix is \n" + str(lower_matrix))
+    return lower_matrix
 
 '''
 Input: matrix: the matrix from the GaussianElim method
