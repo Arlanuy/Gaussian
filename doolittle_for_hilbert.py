@@ -50,7 +50,7 @@ def main():
 
      b_vector = []
      lower_matrix = creatingLower(matrix, num_rows, orig_matrix, b_vector)
-     print("b_vector is " + str(b_vector))
+    # print("b_vector is " + str(b_vector))
      y_vector = findMyExesLower(lower_matrix, num_rows, b_vector)
      x_vector = findMyExesUpper(matrix, num_rows, y_vector)
     # print(str(y_vector))
@@ -164,13 +164,13 @@ def creatingLower(matrix, num_rows, orig_matrix, b_vector):
             summation = 0
             while k < column_counter:
                 summation += matrix[k][column_counter] * lower_matrix[row_counter][k]
-                print("k is " + str(k) + " and cc is " + str(column_counter) + " and rc is " + str(row_counter) + "\n")
-                print("summation is " + str(summation) + " with 1st elem" + str(matrix[k][column_counter]) + " with 2nd elem " + str(lower_matrix[row_counter][k]) +"\n")
+            #    print("k is " + str(k) + " and cc is " + str(column_counter) + " and rc is " + str(row_counter) + "\n")
+            #    print("summation is " + str(summation) + " with 1st elem" + str(matrix[k][column_counter]) + " with 2nd elem " + str(lower_matrix[row_counter][k]) +"\n")
                 k+= 1
-            print("minuend is " + str(orig_matrix[row_counter][column_counter]) + "\n")
+            #print("minuend is " + str(orig_matrix[row_counter][column_counter]) + "\n")
             lower_matrix[row_counter][column_counter] = (orig_matrix[row_counter][column_counter] - summation)/matrix[column_counter][column_counter]
 
-            print("lower_matrix is " + str(lower_matrix[row_counter][column_counter]) + " calculating difference of " + str(orig_matrix[row_counter][column_counter]) + " and " + str(summation)  + "\n")
+            #print("lower_matrix is " + str(lower_matrix[row_counter][column_counter]) + " calculating difference of " + str(orig_matrix[row_counter][column_counter]) + " and " + str(summation)  + "\n")
             column_counter += 1
         row_counter += 1
     print("lower matrix is \n" + str(lower_matrix))
